@@ -31,8 +31,27 @@ public class Solution {
 
      //2-->   //using sorting majrtiy ele will always at n/2
 
-        Array.Sort(nums);
-        return nums[n/2];
+        // Array.Sort(nums);
+        // return nums[n/2];
+
+     //using Boyer more Voting algo rithm O(n) and O(1)
+
+     int candidate=0;
+     int count = 0;
+
+     foreach(int num in nums){
+
+        if(count==0)
+        candidate=num;
+
+        if(candidate == num){
+            count++;
+        }else{
+            count--;
+        }
+     } 
+
+     return candidate;  
 
                 
     }
