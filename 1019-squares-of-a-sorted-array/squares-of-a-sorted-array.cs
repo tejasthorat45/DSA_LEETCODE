@@ -4,21 +4,46 @@ public class Solution {
         //brute force
 
         int[] ans = new int[nums.Length];
-        int idx=0;
+        int n = nums.Length;
 
-        foreach(int num in nums){
+        int idx=n-1;
 
-
-            int sq = num * num;
-            ans[idx++]=sq;
+        // foreach(int num in nums){
 
 
+        //     int sq = num * num;
+        //     ans[idx++]=sq;
 
 
 
+
+
+        // }
+
+        // Array.Sort(ans);
+
+        // return ans;
+
+        int left=0;
+        int right=n-1;
+
+        while(left<=right){
+            int leftsq = nums[left] *nums[left];
+            int rightsq = nums[right]*nums[right];
+
+            if(leftsq>rightsq){
+                ans[idx] = leftsq;
+                left++;
+            }else{
+
+                 ans[idx] = rightsq;
+                right--;
+
+
+            }
+
+            idx--;
         }
-
-        Array.Sort(ans);
 
         return ans;
         
