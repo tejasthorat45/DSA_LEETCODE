@@ -36,7 +36,7 @@ public class Solution {
 
             //move ptr with smaller h
 
-            if(height[left]<height[right]){
+            if(len==height[left]){
                 left++;
             }else{
                 right--;
