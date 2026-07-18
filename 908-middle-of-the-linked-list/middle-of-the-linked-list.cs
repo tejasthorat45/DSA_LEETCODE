@@ -27,19 +27,31 @@ public class Solution {
 
         // second approach cal length of the LL
 
-        ListNode current = head;
-        int length=0;
+        // ListNode current = head;
+        // int length=0;
 
-        while(current!=null){
-            length++;
-            current=current.next;
+        // while(current!=null){
+        //     length++;
+        //     current=current.next;
+        // }
+
+        // for(int i=0;i<length/2;i++){
+        //     head=head.next;
+        // }
+
+        // return head;
+
+        //optimal solution using the two pointer
+
+        ListNode slow =head;
+        ListNode fast = head;
+
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast=fast.next.next;
         }
 
-        for(int i=0;i<length/2;i++){
-            head=head.next;
-        }
-
-        return head;
+        return slow;
 
 
         
