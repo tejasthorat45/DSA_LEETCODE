@@ -12,30 +12,53 @@
 public class Solution {
     public ListNode DeleteMiddle(ListNode head) {
 
-        if(head.next==null)
-        return null;
+        // if(head == null || head.next==null)
+        // return null;
 
-        //cal leb
-        int Len=0;
-        ListNode current = head;
+        // //cal leb
+        // int Len=0;
+        // ListNode current = head;
 
-        while(current!=null){
-            Len++;
-            current=current.next;
+        // while(current!=null){
+        //     Len++;
+        //     current=current.next;
+        // }
+
+        // int middle= Len/2;
+
+        // current = head;
+
+        // for(int i=0;i<middle-1;i++){
+
+        //     current=current.next;
+
+
+        // }
+
+        // current.next=current.next.next;
+
+        // return head;
+
+        //optimal solution one pass solution
+
+        //edge csaes
+        if(head == null || head.next==null){
+            return null;
         }
 
-        int middle= Len/2;
+        ListNode slow =head;
+        ListNode fast=head;
+        ListNode prev = null;
 
-        current = head;
-
-        for(int i=0;i<middle-1;i++){
-
-            current=current.next;
+        while(fast!=null && fast.next!=null){
 
 
+            prev=slow;
+            slow=slow.next;
+            fast=fast.next.next;
         }
 
-        current.next=current.next.next;
+        prev.next=slow.next;
 
         return head;
 
